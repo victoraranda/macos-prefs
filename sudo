@@ -1,0 +1,14 @@
+# sudo: auth account password session
+# file should be in /etc/pam.d/sudo
+
+# ----------------------------------------------
+# this line allows touch-id as a method for 'sudo' prompts
+auth       sufficient     pam_tid.so
+# ----------------------------------------------
+
+# defaults:
+auth       sufficient     pam_smartcard.so
+auth       required       pam_opendirectory.so
+account    required       pam_permit.so
+password   required       pam_deny.so
+session    required       pam_permit.so
